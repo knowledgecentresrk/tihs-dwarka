@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Indian Heights School | Event Photos Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root {
+      --navy-dark: #0f172a;
+      --navy-primary: #1b365d;
+      --navy-accent: #23477d;
+      --gold-primary: #b8860b;
+      --white: #ffffff;
+      --bg-page: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-500: #64748b;
+      --gray-700: #334155;
+      --gray-900: #0f172a;
+      --green-whatsapp: #25d366;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-card: 0 12px 36px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-page);
+      color: var(--gray-900);
+      min-height: 100vh;
+      padding: 20px 14px 40px;
+    }
+
+    .page-wrapper {
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    /* Brand Header */
+    .app-header { margin-bottom: 18px; }
+    .school-brand-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--white);
+      padding: 14px 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+    }
+    .brand-logo { height: 50px; width: auto; object-fit: contain; }
+    .brand-text h1 {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: var(--navy-primary);
+      line-height: 1.25;
+    }
+    .school-motto { font-size: 0.76rem; color: var(--gray-500); margin-top: 2px; }
+    .school-motto span { color: var(--gold-primary); font-weight: 700; }
+
+    /* Content Card */
+    .content-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-card);
+      padding: 26px 22px;
+      margin-bottom: 24px;
+    }
+
+    .flow-intro { text-align: center; margin-bottom: 24px; }
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fef9e7;
+      color: var(--gold-primary);
+      border: 1px solid #e6ca65;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 30px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .intro-heading {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy-dark);
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .intro-sub { font-size: 0.84rem; color: var(--gray-500); line-height: 1.45; }
+
+    /* Form Fields */
+    .input-field-group { margin-bottom: 20px; }
+    .input-field-group label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--gray-700);
+      margin-bottom: 8px;
+    }
+    .required { color: #ef4444; }
+
+    .segmented-control {
+      display: flex;
+      background: var(--gray-100);
+      padding: 4px;
+      border-radius: var(--radius-md);
+      gap: 4px;
+    }
+    .seg-btn {
+      flex: 1;
+      padding: 10px;
+      background: transparent;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .seg-btn.active {
+      background: var(--white);
+      color: var(--navy-primary);
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .clean-input-box {
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      transition: all 0.2s;
+    }
+    .clean-input-box:focus-within {
+      border-color: var(--navy-primary);
+      box-shadow: 0 0 0 3px rgba(27, 54, 93, 0.1);
+    }
+    .clean-input-box i {
+      position: absolute;
+      left: 14px;
+      color: var(--gray-500);
+    }
+    .clean-input-box input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 14px 14px 14px 40px;
+      font-size: 0.94rem;
+      font-family: inherit;
+      color: var(--gray-900);
+      outline: none;
+    }
+    .clean-input-box.phone-box { padding-left: 0; }
+    .phone-prefix {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 12px 0 14px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--gray-700);
+      border-right: 1.5px solid var(--gray-200);
+    }
+    .phone-prefix img { width: 18px; border-radius: 2px; }
+    .phone-box input { padding-left: 14px; }
+
+    .field-note {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      margin-top: 6px;
+    }
+    .field-note i { color: var(--green-whatsapp); }
+
+    /* Submit Button */
+    .btn-solid-primary {
+      width: 100%;
+      padding: 16px 20px;
+      background: var(--navy-primary);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 0.98rem;
+      font-weight: 700;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(27, 54, 93, 0.25);
+      transition: all 0.2s;
+    }
+    .btn-solid-primary:hover { background: var(--navy-accent); }
+    .btn-solid-primary:active { transform: scale(0.98); }
+
+    /* Confirmation Card */
+    .confirmation-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-xl);
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .confirm-icon-wrap {
+      width: 64px;
+      height: 64px;
+      background: #f0fdf4;
+      color: #22c55e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 16px;
+    }
+    .confirm-title { font-size: 1.35rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 6px; }
+    .confirm-greeting { font-size: 1rem; color: var(--navy-primary); margin-bottom: 6px; }
+    .confirm-desc { font-size: 0.88rem; color: var(--gray-500); line-height: 1.45; margin-bottom: 20px; }
+    
+    .confirm-info-box {
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.84rem;
+      padding: 6px 0;
+      color: var(--gray-700);
+    }
+    .info-row:not(:last-child) { border-bottom: 1px dashed var(--gray-200); }
+    .info-row strong { color: var(--navy-dark); font-weight: 700; }
+
+    .btn-whatsapp-large {
+      background: var(--green-whatsapp);
+      color: var(--white);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+      font-size: 1rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    .btn-whatsapp-large:active { transform: scale(0.98); }
+    .btn-whatsapp-large i { font-size: 1.6rem; }
+    .auto-note { font-size: 0.76rem; color: var(--gray-500); margin-top: 18px; line-height: 1.4; }
+
+    /* Footer */
+    .clean-footer {
+      text-align: center;
+      font-size: 0.74rem;
+      color: var(--gray-500);
+      padding-top: 10px;
+    }
+    .footer-sublinks { margin-top: 6px; }
+    .footer-sublinks a { color: var(--navy-primary); text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+    
+    <!-- Top School Header -->
+    <header class="app-header">
+      <div class="school-brand-card">
+        <img src="logo.png" alt="The Indian Heights School" class="brand-logo" onerror="this.src='/static/images/tihs_logo.png'">
+        <div class="brand-text">
+          <h1>THE INDIAN HEIGHTS SCHOOL</h1>
+          <p class="school-motto">Sector 23, Dwarka &bull; <span>CBSE Affiliated</span></p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Single-Step Form Card -->
+    <main class="content-card" id="mainFlowCard">
+
+      <div class="flow-intro">
+        <div class="pill-badge">
+          <i class="fa-solid fa-camera"></i> Official Event Photography Desk
+        </div>
+        <h2 class="intro-heading">Get Your Event Candid Photos on WhatsApp</h2>
+        <p class="intro-sub">Enter quick details below to receive your child's high-resolution event photos directly on WhatsApp.</p>
+      </div>
+
+      <form id="singleForm" onsubmit="return false;">
+        
+        <!-- Relation -->
+        <div class="input-field-group">
+          <label>I am the child's:</label>
+          <div class="segmented-control">
+            <button type="button" class="seg-btn active" data-relation="Father">Father</button>
+            <button type="button" class="seg-btn" data-relation="Mother">Mother</button>
+            <button type="button" class="seg-btn" data-relation="Guardian">Guardian</button>
+          </div>
+        </div>
+
+        <!-- Parent Name -->
+        <div class="input-field-group">
+          <label for="parentName">Parent Full Name <span class="required">*</span></label>
+          <div class="clean-input-box">
+            <i class="fa-regular fa-user"></i>
+            <input type="text" id="parentName" placeholder="e.g. Rahul Sharma" autocomplete="name" required>
+          </div>
+        </div>
+
+        <!-- WhatsApp Number -->
+        <div class="input-field-group">
+          <label for="whatsappNo">WhatsApp Mobile Number <span class="required">*</span></label>
+          <div class="clean-input-box phone-box">
+            <span class="phone-prefix"><img src="https://flagcdn.com/w20/in.png" alt="India"> +91</span>
+            <input type="tel" id="whatsappNo" placeholder="98765 43210" maxlength="10" autocomplete="tel" required>
+          </div>
+          <span class="field-note"><i class="fa-brands fa-whatsapp"></i> Photos will be sent to this WhatsApp number.</span>
+        </div>
+
+        <!-- Student Name -->
+        <div class="input-field-group">
+          <label for="studentName">Child's Full Name <span class="required">*</span></label>
+          <div class="clean-input-box">
+            <i class="fa-solid fa-child"></i>
+            <input type="text" id="studentName" placeholder="e.g. Aarav Sharma" required>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="action-footer" style="margin-top: 24px;">
+          <button type="button" class="btn-solid-primary" id="btnSubmit">
+            <span class="btn-label">📸 Get Event Photos on WhatsApp</span>
+            <span class="btn-spin" style="display:none;"><i class="fa-solid fa-spinner fa-spin"></i> Processing...</span>
+          </button>
+        </div>
+
+      </form>
+
+    </main>
+
+    <!-- SUCCESS & CONFIRMATION SCREEN -->
+    <div class="result-wrapper" id="resultContainer" style="display: none;">
+      <div class="confirmation-card">
+        <div class="confirm-icon-wrap">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <h2 class="confirm-title">Request Received!</h2>
+        <p class="confirm-greeting">Thank you, <strong id="displayParentName">Rahul Sharma</strong>!</p>
+        <p class="confirm-desc">
+          We have recorded your request to receive event candid photos for <strong id="displayStudentName">Aarav Sharma</strong>.
+        </p>
+
+        <div class="confirm-info-box">
+          <div class="info-row">
+            <span><i class="fa-brands fa-whatsapp" style="color:#25d366;"></i> WhatsApp Number:</span>
+            <strong id="displayPhone">+91 98765 43210</strong>
+          </div>
+          <div class="info-row">
+            <span><i class="fa-solid fa-school" style="color:#1b365d;"></i> School Desk:</span>
+            <strong>+91 98737 99697</strong>
+          </div>
+        </div>
+
+        <!-- Direct WhatsApp Action Button -->
+        <a href="#" class="btn-whatsapp-large" id="btnWhatsappDispatch" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Open WhatsApp to Receive Photos
+        </a>
+
+        <p class="auto-note">
+          <i class="fa-solid fa-sparkles" style="color:#b8860b;"></i> High-resolution photos are being curated and will be shared on your WhatsApp chat shortly.
+        </p>
+      </div>
+    </div>
+
+    <!-- Clean Footer -->
+    <footer class="clean-footer">
+      <p>&copy; The Indian Heights School, Sector 23 Dwarka, New Delhi</p>
+      <div class="footer-sublinks">
+        <a href="https://www.theindianheightsschool.com" target="_blank">Official Website</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // OPTIONAL: Paste your Google Apps Script Web App URL below to auto-sync with Google Sheets!
+    const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycby5JEFezRTZxBfnU_qlM_t0UE62tlUVgTszxJI9jOPPJvjk8YXtZMxEMlA_7DeFgHU5/exec"; 
+    const SCHOOL_WHATSAPP = "919873799697";
+
+    let selectedRelation = 'Father';
+
+    document.querySelectorAll('.segmented-control .seg-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.segmented-control .seg-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedRelation = btn.dataset.relation;
+      });
+    });
+
+    const btnSubmit = document.getElementById('btnSubmit');
+
+    btnSubmit.addEventListener('click', async () => {
+      const parentName = document.getElementById('parentName').value.trim();
+      const phone = document.getElementById('whatsappNo').value.trim().replace(/\D/g, '');
+      const studentName = document.getElementById('studentName').value.trim();
+
+      if (!parentName) {
+        alert('Please enter Parent Name.');
+        document.getElementById('parentName').focus();
+        return;
+      }
+      if (phone.length !== 10) {
+        alert('Please enter a valid 10-digit WhatsApp number.');
+        document.getElementById('whatsappNo').focus();
+        return;
+      }
+      if (!studentName) {
+        alert("Please enter Child's Name.");
+        document.getElementById('studentName').focus();
+        return;
+      }
+
+      const payload = {
+        parent_relation: selectedRelation,
+        parent_name: parentName,
+        whatsapp_no: phone,
+        student_name: studentName
+      };
+
+      // 1. Send data to Google Sheets
+      if (GOOGLE_SHEET_WEBHOOK_URL) {
+        try {
+          fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain' },
+            body: JSON.stringify(payload)
+          });
+        } catch (e) {
+          console.log('Sheet sync:', e);
+        }
+      }
+
+      // 2. Confetti celebratory effect
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 }, colors: ['#1B365D', '#D4AF37', '#25D366'] });
+      }
+
+      // 3. Pre-craft official WhatsApp message
+      const waText = 
+        `Namaste The Indian Heights School! 🌟\n\n` +
+        `I have registered to receive event candid photos.\n` +
+        `👦 *Student Name:* ${studentName}\n` +
+        `👤 *Parent Name:* ${parentName} (${selectedRelation})\n` +
+        `📱 *Mobile:* +91 ${phone}\n\n` +
+        `Please share our high-res event candid photos link on this WhatsApp chat. Thank you!`;
+
+      const waUrl = `https://wa.me/${SCHOOL_WHATSAPP}?text=${encodeURIComponent(waText)}`;
+
+      // 4. Update Confirmation UI
+      document.getElementById('displayParentName').innerText = `${parentName} (${selectedRelation})`;
+      document.getElementById('displayStudentName').innerText = studentName;
+      document.getElementById('displayPhone').innerText = `+91 ${phone}`;
+      document.getElementById('btnWhatsappDispatch').href = waUrl;
+
+      document.getElementById('mainFlowCard').style.display = 'none';
+      document.getElementById('resultContainer').style.display = 'block';
+
+      // 5. Automatically open WhatsApp
+      setTimeout(() => {
+        window.open(waUrl, '_blank');
+      }, 700);
+    });
+  </script>
+
+</body>
+</html>
