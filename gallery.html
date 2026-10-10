@@ -24,9 +24,11 @@
       --gray-600: #475569;
       --gray-800: #1e293b;
       --green-wa: #25d366;
-      --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.06);
-      --shadow-hover: 0 16px 32px rgba(15, 23, 42, 0.12);
-      --radius: 16px;
+      --fb-blue: #1877f2;
+      --insta-pink: #e1306c;
+      --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.05);
+      --shadow-hover: 0 14px 28px rgba(15, 23, 42, 0.1);
+      --radius: 14px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -36,7 +38,6 @@
       background-color: var(--gray-50);
       color: var(--gray-800);
       line-height: 1.5;
-      padding-bottom: 60px;
     }
 
     /* Sticky Clean Top Navbar */
@@ -47,7 +48,7 @@
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--gray-200);
-      padding: 12px 20px;
+      padding: 10px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -56,48 +57,64 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
     }
     .nav-logo {
-      height: 44px;
+      height: 40px;
       width: auto;
     }
     .nav-titles h1 {
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       font-weight: 800;
       color: var(--navy);
-      letter-spacing: 0.3px;
+      line-height: 1.2;
     }
     .nav-titles p {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       color: var(--gold);
       font-weight: 700;
     }
+    
     .nav-actions {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
     }
-    .btn-nav-zip {
-      background: var(--navy);
-      color: var(--white);
-      text-decoration: none;
-      padding: 9px 16px;
-      border-radius: 30px;
-      font-size: 0.82rem;
+    .btn-nav-link {
+      padding: 7px 11px;
+      border-radius: 20px;
+      font-size: 0.74rem;
       font-weight: 700;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: background 0.2s;
+      gap: 5px;
+      transition: all 0.2s;
     }
-    .btn-nav-zip:hover { background: #132742; }
+    .btn-nav-web {
+      background: var(--navy-light);
+      color: var(--navy);
+      border: 1px solid var(--gray-200);
+    }
+    .btn-nav-web:hover { background: var(--navy); color: var(--white); }
+    .btn-nav-insta {
+      background: #fdf2f8;
+      color: var(--insta-pink);
+      border: 1px solid #fbcfe8;
+    }
+    .btn-nav-insta:hover { background: var(--insta-pink); color: var(--white); }
+    .btn-nav-fb {
+      background: #eff6ff;
+      color: var(--fb-blue);
+      border: 1px solid #bfdbfe;
+    }
+    .btn-nav-fb:hover { background: var(--fb-blue); color: var(--white); }
 
     /* Hero Header */
     .hero-section {
       text-align: center;
-      padding: 36px 20px 24px;
+      padding: 28px 16px 20px;
       max-width: 720px;
       margin: 0 auto;
     }
@@ -108,91 +125,97 @@
       background: var(--gold-light);
       border: 1px solid #e6ca65;
       color: var(--gold);
-      font-size: 0.76rem;
+      font-size: 0.72rem;
       font-weight: 800;
-      padding: 5px 14px;
+      padding: 4px 12px;
       border-radius: 30px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       text-transform: uppercase;
     }
     .hero-title {
-      font-size: 1.85rem;
+      font-size: 1.55rem;
       font-weight: 800;
       color: var(--navy-dark);
-      line-height: 1.25;
-      margin-bottom: 8px;
+      line-height: 1.3;
+      margin-bottom: 6px;
     }
     .hero-sub {
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       color: var(--gray-600);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .tips-row {
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--navy);
       font-weight: 600;
     }
     .tips-row span {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       background: var(--white);
       border: 1px solid var(--gray-200);
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
     }
 
     /* Gallery Container */
     .gallery-container {
-      max-width: 1320px;
+      max-width: 1300px;
       margin: 0 auto;
-      padding: 0 16px;
+      padding: 0 12px;
     }
 
-    /* Responsive Masonry Columns */
+    /* Responsive Masonry Columns (Mobile-First) */
     .photo-grid {
       column-count: 4;
-      column-gap: 16px;
+      column-gap: 12px;
     }
-    @media (max-width: 1100px) { .photo-grid { column-count: 3; } }
-    @media (max-width: 768px) { .photo-grid { column-count: 2; column-gap: 12px; } }
-    @media (max-width: 480px) { .photo-grid { column-count: 1; } }
+    @media (max-width: 1024px) { .photo-grid { column-count: 3; } }
+    @media (max-width: 768px) {
+      .photo-grid { column-count: 2; column-gap: 10px; }
+      .hero-title { font-size: 1.35rem; }
+      .nav-titles p { display: none; }
+      .btn-nav-link span { display: none; }
+      .btn-nav-link { padding: 8px 10px; font-size: 0.85rem; }
+    }
+    @media (max-width: 360px) { .photo-grid { column-count: 1; } }
 
     /* Photo Card */
     .photo-card {
       break-inside: avoid;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       background: var(--white);
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--gray-200);
       position: relative;
-      transition: all 0.25s ease;
+      transition: all 0.2s ease;
       cursor: pointer;
     }
     .photo-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       box-shadow: var(--shadow-hover);
     }
     .photo-card img {
       width: 100%;
       height: auto;
       display: block;
-      transition: transform 0.3s ease;
+      transition: transform 0.25s ease;
     }
     .photo-card:hover img {
-      transform: scale(1.02);
+      transform: scale(1.015);
     }
 
     /* Card Footer Bar */
     .card-footer {
-      padding: 10px 14px;
+      padding: 8px 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -204,17 +227,13 @@
       font-weight: 700;
       color: var(--gray-400);
     }
-    .card-actions {
-      display: flex;
-      gap: 8px;
-    }
     .btn-card-action {
-      background: var(--gray-100);
-      color: var(--navy);
+      background: var(--navy);
+      color: var(--white);
       border: none;
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 0.78rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.76rem;
       font-weight: 700;
       text-decoration: none;
       display: inline-flex;
@@ -223,16 +242,7 @@
       transition: background 0.2s;
     }
     .btn-card-action:hover {
-      background: var(--navy);
-      color: var(--white);
-    }
-    .btn-card-wa {
-      background: #f0fdf4;
-      color: #166534;
-    }
-    .btn-card-wa:hover {
-      background: var(--green-wa);
-      color: var(--white);
+      background: #122540;
     }
 
     /* ========================================================================
@@ -247,7 +257,7 @@
       backdrop-filter: blur(10px);
       flex-direction: column;
       justify-content: space-between;
-      padding: 18px;
+      padding: 16px;
       animation: fadeIn 0.2s ease;
     }
     .lightbox-modal.active { display: flex; }
@@ -262,7 +272,7 @@
       margin: 0 auto;
     }
     .lightbox-counter {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       color: var(--gray-400);
@@ -271,10 +281,10 @@
       background: rgba(255, 255, 255, 0.15);
       color: var(--white);
       border: none;
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -292,46 +302,46 @@
       margin: 10px 0;
     }
     .lightbox-img {
-      max-height: 78vh;
+      max-height: 75vh;
       max-width: 90vw;
       object-fit: contain;
-      border-radius: 12px;
+      border-radius: 10px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
     }
     .lightbox-nav-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.2);
       color: var(--white);
       border: none;
-      width: 50px;
-      height: 50px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.2s;
     }
-    .lightbox-nav-btn:hover { background: rgba(255, 255, 255, 0.35); transform: translateY(-50%) scale(1.05); }
-    .lightbox-prev { left: 10px; }
-    .lightbox-next { right: 10px; }
+    .lightbox-nav-btn:hover { background: rgba(255, 255, 255, 0.35); }
+    .lightbox-prev { left: 8px; }
+    .lightbox-next { right: 8px; }
 
     .lightbox-bottombar {
       display: flex;
       justify-content: center;
-      gap: 14px;
+      gap: 12px;
       max-width: 1200px;
       width: 100%;
       margin: 0 auto;
       flex-wrap: wrap;
     }
     .btn-lightbox-action {
-      padding: 13px 26px;
+      padding: 12px 22px;
       border-radius: 30px;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       font-weight: 700;
       text-decoration: none;
       display: inline-flex;
@@ -345,45 +355,82 @@
       background: var(--white);
       color: var(--navy);
     }
-    .btn-lightbox-download:hover { background: #e2e8f0; }
     .btn-lightbox-wa {
       background: var(--green-wa);
       color: var(--white);
     }
 
-    /* Admissions Banner */
-    .admissions-banner {
-      max-width: 800px;
-      margin: 60px auto 20px;
-      background: linear-gradient(135deg, var(--navy-dark), var(--navy));
-      border: 2px solid var(--gold);
-      border-radius: var(--radius);
-      padding: 30px 24px;
+    /* Complete School Footer */
+    .site-footer {
+      background: var(--white);
+      border-top: 1px solid var(--gray-200);
+      margin-top: 48px;
+      padding: 36px 16px 28px;
       text-align: center;
-      color: var(--white);
-      box-shadow: var(--shadow-hover);
     }
-    .admissions-banner h3 {
-      font-size: 1.3rem;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-    .admissions-banner p {
-      font-size: 0.88rem;
-      color: var(--gray-400);
-      margin-bottom: 18px;
-    }
-    .btn-banner-call {
-      background: var(--gold);
-      color: var(--navy-dark);
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-weight: 800;
-      display: inline-flex;
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 8px;
-      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+    .footer-logo {
+      height: 48px;
+      width: auto;
+    }
+    .footer-brand h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .footer-brand p {
+      font-size: 0.78rem;
+      color: var(--gray-600);
+    }
+    
+    .footer-social-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .footer-btn {
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: transform 0.2s;
+    }
+    .footer-btn:active { transform: scale(0.97); }
+    .footer-btn-web {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .footer-btn-insta {
+      background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+      color: var(--white);
+    }
+    .footer-btn-fb {
+      background: var(--fb-blue);
+      color: var(--white);
+    }
+    .footer-btn-call {
+      background: var(--gold-light);
+      border: 1.5px solid var(--gold);
+      color: var(--navy-dark);
+    }
+
+    .footer-copy {
+      font-size: 0.74rem;
+      color: var(--gray-400);
+      border-top: 1px solid var(--gray-100);
+      padding-top: 18px;
     }
 
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -391,18 +438,24 @@
 </head>
 <body>
 
-  <!-- Top Navbar -->
+  <!-- Top Navbar with Official Buttons -->
   <header class="top-nav">
     <a href="index.html" class="nav-brand">
       <img src="logo.png" alt="TIHS Logo" class="nav-logo">
       <div class="nav-titles">
         <h1>THE INDIAN HEIGHTS SCHOOL</h1>
-        <p>Candid Memories &bull; Sector 23, Dwarka</p>
+        <p>Sector 23, Dwarka, New Delhi</p>
       </div>
     </a>
     <div class="nav-actions">
-      <a href="TIHS_Event_Photos_2026-27.zip" class="btn-nav-zip" download>
-        <i class="fa-solid fa-cloud-arrow-down"></i> <span>Download All (ZIP)</span>
+      <a href="https://theindianheightsschool.com/" target="_blank" class="btn-nav-link btn-nav-web" title="Official Website">
+        <i class="fa-solid fa-globe"></i> <span>Website</span>
+      </a>
+      <a href="https://www.instagram.com/theindianheightsschool/" target="_blank" class="btn-nav-link btn-nav-insta" title="Instagram">
+        <i class="fa-brands fa-instagram"></i> <span>Instagram</span>
+      </a>
+      <a href="https://www.facebook.com/theindianheightssschool" target="_blank" class="btn-nav-link btn-nav-fb" title="Facebook">
+        <i class="fa-brands fa-facebook"></i> <span>Facebook</span>
       </a>
     </div>
   </header>
@@ -413,12 +466,12 @@
       <i class="fa-solid fa-camera"></i> Official Candid Event Album
     </div>
     <h2 class="hero-title">Today's Precious Smiles & Moments Captured</h2>
-    <p class="hero-sub">Tap any photo to view full-screen, save in original HD, or share directly on WhatsApp.</p>
+    <p class="hero-sub">Tap any photo to view full-screen or save in original HD quality.</p>
 
     <div class="tips-row">
-      <span><i class="fa-solid fa-arrow-down-to-line"></i> 1-Tap HD Download</span>
-      <span><i class="fa-brands fa-whatsapp" style="color:#25d366;"></i> 1-Tap Family Share</span>
+      <span><i class="fa-solid fa-arrow-down-to-line"></i> 1-Tap HD Save</span>
       <span><i class="fa-solid fa-images"></i> 77 Candid Photos</span>
+      <span><i class="fa-solid fa-shield-halved"></i> Official School Gallery</span>
     </div>
   </div>
 
@@ -433,9 +486,6 @@
             <a href="photos/photo_01.jpeg" download="TIHS_Event_Photo_1.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_01.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -446,9 +496,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_02.jpeg" download="TIHS_Event_Photo_2.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_02.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -461,9 +508,6 @@
             <a href="photos/photo_03.jpeg" download="TIHS_Event_Photo_3.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_03.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -474,9 +518,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_04.jpeg" download="TIHS_Event_Photo_4.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_04.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -489,9 +530,6 @@
             <a href="photos/photo_05.jpeg" download="TIHS_Event_Photo_5.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_05.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -502,9 +540,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_06.jpeg" download="TIHS_Event_Photo_6.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_06.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -517,9 +552,6 @@
             <a href="photos/photo_07.jpeg" download="TIHS_Event_Photo_7.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_07.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -530,9 +562,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_08.jpeg" download="TIHS_Event_Photo_8.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_08.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -545,9 +574,6 @@
             <a href="photos/photo_09.jpeg" download="TIHS_Event_Photo_9.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_09.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -558,9 +584,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_10.jpeg" download="TIHS_Event_Photo_10.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_10.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -573,9 +596,6 @@
             <a href="photos/photo_11.jpeg" download="TIHS_Event_Photo_11.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_11.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -586,9 +606,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_12.jpeg" download="TIHS_Event_Photo_12.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_12.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -601,9 +618,6 @@
             <a href="photos/photo_13.jpeg" download="TIHS_Event_Photo_13.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_13.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -614,9 +628,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_14.jpeg" download="TIHS_Event_Photo_14.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_14.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -629,9 +640,6 @@
             <a href="photos/photo_15.jpeg" download="TIHS_Event_Photo_15.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_15.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -642,9 +650,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_16.jpeg" download="TIHS_Event_Photo_16.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_16.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -657,9 +662,6 @@
             <a href="photos/photo_17.jpeg" download="TIHS_Event_Photo_17.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_17.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -670,9 +672,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_18.jpeg" download="TIHS_Event_Photo_18.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_18.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -685,9 +684,6 @@
             <a href="photos/photo_19.jpeg" download="TIHS_Event_Photo_19.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_19.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -698,9 +694,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_20.jpeg" download="TIHS_Event_Photo_20.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_20.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -713,9 +706,6 @@
             <a href="photos/photo_21.jpeg" download="TIHS_Event_Photo_21.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_21.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -726,9 +716,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_22.jpeg" download="TIHS_Event_Photo_22.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_22.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -741,9 +728,6 @@
             <a href="photos/photo_23.jpeg" download="TIHS_Event_Photo_23.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_23.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -754,9 +738,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_24.jpeg" download="TIHS_Event_Photo_24.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_24.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -769,9 +750,6 @@
             <a href="photos/photo_25.jpeg" download="TIHS_Event_Photo_25.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_25.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -782,9 +760,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_26.jpeg" download="TIHS_Event_Photo_26.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_26.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -797,9 +772,6 @@
             <a href="photos/photo_27.jpeg" download="TIHS_Event_Photo_27.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_27.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -810,9 +782,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_28.jpeg" download="TIHS_Event_Photo_28.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_28.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -825,9 +794,6 @@
             <a href="photos/photo_29.jpeg" download="TIHS_Event_Photo_29.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_29.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -838,9 +804,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_30.jpeg" download="TIHS_Event_Photo_30.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_30.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -853,9 +816,6 @@
             <a href="photos/photo_31.jpeg" download="TIHS_Event_Photo_31.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_31.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -866,9 +826,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_32.jpeg" download="TIHS_Event_Photo_32.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_32.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -881,9 +838,6 @@
             <a href="photos/photo_33.jpeg" download="TIHS_Event_Photo_33.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_33.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -894,9 +848,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_34.jpeg" download="TIHS_Event_Photo_34.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_34.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -909,9 +860,6 @@
             <a href="photos/photo_35.jpeg" download="TIHS_Event_Photo_35.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_35.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -922,9 +870,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_36.jpeg" download="TIHS_Event_Photo_36.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_36.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -937,9 +882,6 @@
             <a href="photos/photo_37.jpeg" download="TIHS_Event_Photo_37.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_37.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -950,9 +892,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_38.jpeg" download="TIHS_Event_Photo_38.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_38.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -965,9 +904,6 @@
             <a href="photos/photo_39.jpeg" download="TIHS_Event_Photo_39.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_39.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -978,9 +914,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_40.jpeg" download="TIHS_Event_Photo_40.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_40.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -993,9 +926,6 @@
             <a href="photos/photo_41.jpeg" download="TIHS_Event_Photo_41.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_41.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1006,9 +936,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_42.jpeg" download="TIHS_Event_Photo_42.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_42.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1021,9 +948,6 @@
             <a href="photos/photo_43.jpeg" download="TIHS_Event_Photo_43.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_43.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1034,9 +958,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_44.jpeg" download="TIHS_Event_Photo_44.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_44.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1049,9 +970,6 @@
             <a href="photos/photo_45.jpeg" download="TIHS_Event_Photo_45.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_45.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1062,9 +980,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_46.jpeg" download="TIHS_Event_Photo_46.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_46.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1077,9 +992,6 @@
             <a href="photos/photo_47.jpeg" download="TIHS_Event_Photo_47.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_47.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1090,9 +1002,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_48.jpeg" download="TIHS_Event_Photo_48.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_48.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1105,9 +1014,6 @@
             <a href="photos/photo_49.jpeg" download="TIHS_Event_Photo_49.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_49.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1118,9 +1024,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_50.jpeg" download="TIHS_Event_Photo_50.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_50.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1133,9 +1036,6 @@
             <a href="photos/photo_51.jpeg" download="TIHS_Event_Photo_51.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_51.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1146,9 +1046,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_52.jpeg" download="TIHS_Event_Photo_52.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_52.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1161,9 +1058,6 @@
             <a href="photos/photo_53.jpeg" download="TIHS_Event_Photo_53.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_53.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1174,9 +1068,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_54.jpeg" download="TIHS_Event_Photo_54.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_54.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1189,9 +1080,6 @@
             <a href="photos/photo_55.jpeg" download="TIHS_Event_Photo_55.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_55.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1202,9 +1090,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_56.jpeg" download="TIHS_Event_Photo_56.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_56.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1217,9 +1102,6 @@
             <a href="photos/photo_57.jpeg" download="TIHS_Event_Photo_57.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_57.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1230,9 +1112,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_58.jpeg" download="TIHS_Event_Photo_58.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_58.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1245,9 +1124,6 @@
             <a href="photos/photo_59.jpeg" download="TIHS_Event_Photo_59.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_59.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1258,9 +1134,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_60.jpeg" download="TIHS_Event_Photo_60.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_60.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1273,9 +1146,6 @@
             <a href="photos/photo_61.jpeg" download="TIHS_Event_Photo_61.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_61.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1286,9 +1156,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_62.jpeg" download="TIHS_Event_Photo_62.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_62.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1301,9 +1168,6 @@
             <a href="photos/photo_63.jpeg" download="TIHS_Event_Photo_63.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_63.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1314,9 +1178,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_64.jpeg" download="TIHS_Event_Photo_64.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_64.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1329,9 +1190,6 @@
             <a href="photos/photo_65.jpeg" download="TIHS_Event_Photo_65.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_65.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1342,9 +1200,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_66.jpeg" download="TIHS_Event_Photo_66.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_66.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1357,9 +1212,6 @@
             <a href="photos/photo_67.jpeg" download="TIHS_Event_Photo_67.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_67.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1370,9 +1222,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_68.jpeg" download="TIHS_Event_Photo_68.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_68.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1385,9 +1234,6 @@
             <a href="photos/photo_69.jpeg" download="TIHS_Event_Photo_69.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_69.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1398,9 +1244,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_70.jpeg" download="TIHS_Event_Photo_70.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_70.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1413,9 +1256,6 @@
             <a href="photos/photo_71.jpeg" download="TIHS_Event_Photo_71.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_71.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1426,9 +1266,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_72.jpeg" download="TIHS_Event_Photo_72.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_72.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1441,9 +1278,6 @@
             <a href="photos/photo_73.jpeg" download="TIHS_Event_Photo_73.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_73.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1454,9 +1288,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_74.jpeg" download="TIHS_Event_Photo_74.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_74.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1469,9 +1300,6 @@
             <a href="photos/photo_75.jpeg" download="TIHS_Event_Photo_75.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_75.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -1482,9 +1310,6 @@
           <div class="card-actions" onclick="event.stopPropagation()">
             <a href="photos/photo_76.jpeg" download="TIHS_Event_Photo_76.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
-            </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_76.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -1497,25 +1322,42 @@
             <a href="photos/photo_77.jpeg" download="TIHS_Event_Photo_77.jpeg" class="btn-card-action" title="Download Photo">
               <i class="fa-solid fa-download"></i> Save
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20candid%20photo%20from%20The%20Indian%20Heights%20School%20event!%20https://knowledgecentresrk.github.io/tihs-dwarka/photos/photo_77.jpeg" target="_blank" class="btn-card-action btn-card-wa" title="Share on WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Admissions Banner -->
-    <div class="admissions-banner">
-      <h3>Experience The Indian Heights School in Person</h3>
-      <p>Session 2027-28 Admissions Open &bull; Pre-School to Senior Secondary &bull; Sector 23, Dwarka, New Delhi</p>
-      <a href="tel:+919873799697" class="btn-banner-call">
-        <i class="fa-solid fa-phone"></i> Admissions Desk: +91 98737 99697
-      </a>
-    </div>
   </main>
 
-  <!-- Fullscreen Lightbox Modal -->
+  <!-- Complete Official School Footer -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img src="logo.png" alt="TIHS Logo" class="footer-logo">
+      <h3>THE INDIAN HEIGHTS SCHOOL</h3>
+      <p>Sector 23, Dwarka, New Delhi - 110077 &bull; CBSE Affiliated</p>
+    </div>
+
+    <!-- Official Social & Website Buttons -->
+    <div class="footer-social-row">
+      <a href="https://theindianheightsschool.com/" target="_blank" class="footer-btn footer-btn-web">
+        <i class="fa-solid fa-globe"></i> Visit Official Website
+      </a>
+      <a href="https://www.instagram.com/theindianheightsschool/" target="_blank" class="footer-btn footer-btn-insta">
+        <i class="fa-brands fa-instagram"></i> Follow on Instagram
+      </a>
+      <a href="https://www.facebook.com/theindianheightssschool" target="_blank" class="footer-btn footer-btn-fb">
+        <i class="fa-brands fa-facebook"></i> Follow on Facebook
+      </a>
+      <a href="tel:+919873799697" class="footer-btn footer-btn-call">
+        <i class="fa-solid fa-phone"></i> Admissions: +91 98737 99697
+      </a>
+    </div>
+
+    <div class="footer-copy">
+      <p>&copy; 2026-27 The Indian Heights School. All Rights Reserved &bull; <em>Step into Step with Excellence</em></p>
+    </div>
+  </footer>
+
+  <!-- Fullscreen Lightbox Modal (Mobile-Optimized) -->
   <div class="lightbox-modal" id="lightboxModal">
     <div class="lightbox-topbar">
       <div class="lightbox-counter" id="lightboxCounter">Photo 1 of 77</div>
@@ -1530,10 +1372,7 @@
 
     <div class="lightbox-bottombar">
       <a href="#" id="lightboxDownloadBtn" download="TIHS_Event_Photo.jpeg" class="btn-lightbox-action btn-lightbox-download">
-        <i class="fa-solid fa-download"></i> Save to Phone
-      </a>
-      <a href="#" id="lightboxWaBtn" target="_blank" class="btn-lightbox-action btn-lightbox-wa">
-        <i class="fa-brands fa-whatsapp"></i> Share on WhatsApp
+        <i class="fa-solid fa-download"></i> Save Photo to Phone
       </a>
     </div>
   </div>
@@ -1546,7 +1385,6 @@
     const imgEl = document.getElementById('lightboxImg');
     const counterEl = document.getElementById('lightboxCounter');
     const downloadBtn = document.getElementById('lightboxDownloadBtn');
-    const waBtn = document.getElementById('lightboxWaBtn');
 
     function openLightbox(index) {
       currentIndex = index;
@@ -1567,9 +1405,6 @@
       counterEl.innerText = `Photo ${currentIndex + 1} of ${photoList.length}`;
       downloadBtn.href = photoPath;
       downloadBtn.download = `TIHS_Event_Photo_${currentIndex + 1}.jpeg`;
-
-      const fullUrl = `https://knowledgecentresrk.github.io/tihs-dwarka/${photoPath}`;
-      waBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent('Check out this candid photo from The Indian Heights School event! ' + fullUrl)}`;
     }
 
     function prevPhoto() {
@@ -1596,8 +1431,8 @@
     imgEl.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, false);
     imgEl.addEventListener('touchend', (e) => {
       touchEndX = e.changedTouches[0].screenX;
-      if (touchEndX < touchStartX - 50) nextPhoto();
-      if (touchEndX > touchStartX + 50) prevPhoto();
+      if (touchEndX < touchStartX - 40) nextPhoto();
+      if (touchEndX > touchStartX + 40) prevPhoto();
     }, false);
   </script>
 </body>
